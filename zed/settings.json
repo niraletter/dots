@@ -1,0 +1,109 @@
+{
+  "edit_predictions": {
+    "mode": "eager",
+  },
+  "extend_comment_on_newline": false,
+  "ui_font_family": ".ZedSans",
+  "buffer_font_family": "CaskaydiaMono Nerd Font",
+  "vim_mode": false,
+  "scrollbar": {
+    "git_diff": true,
+  },
+  "format_on_save": "on",
+  "use_system_window_tabs": false,
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "runnables": true,
+    "line_numbers": true,
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "code_actions": false,
+  },
+  "autoscroll_on_clicks": false,
+  "outline_panel": {
+    "button": true,
+    "file_icons": true,
+    "folder_icons": true,
+  },
+  "git_panel": {
+    "button": true,
+    "status_style": "icon",
+    "sort_by_path": false,
+    "collapse_untracked_diff": false,
+  },
+  "search": {
+    "button": true,
+  },
+  "status_bar": {
+    "cursor_position_button": true,
+    "active_language_button": true,
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+  },
+  "preview_tabs": {
+    "enabled": true,
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true,
+  },
+  "title_bar": {
+    "show_sign_in": true,
+    "show_menus": false,
+    "show_branch_icon": false,
+  },
+  "project_panel": {
+    "hide_gitignore": false,
+    "sticky_scroll": true,
+    "auto_open": { "on_paste": true },
+    "hide_hidden": false,
+    "hide_root": false,
+    "git_status": true,
+    "folder_icons": true,
+  },
+  "agent_ui_font_size": 16.0,
+  "zoomed_padding": true,
+  "terminal": {
+    "font_family": "CaskaydiaMono Nerd Font",
+    "shell": "system",
+    "button": true,
+    "dock": "bottom",
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Material Icon Theme",
+  },
+  // "features": {
+  //   "edit_prediction_provider": "copilot",
+  // },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 200,
+    },
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": null,
+    },
+  },
+  "inlay_hints": {
+    "enabled": false,
+  },
+  "disable_ai": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "JetBrains Dark",
+  },
+}

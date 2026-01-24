@@ -1,0 +1,55 @@
+[
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-`": ["task::Spawn", { "task_name": "go" }]
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-1": ["task::Spawn", { "task_name": "lazygit" }]
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-2": ["task::Spawn", { "task_name": "gitui" }]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-o": "task::Spawn"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-w": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-r": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-v": "terminal::Paste"
+    }
+  }
+]

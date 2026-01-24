@@ -1,0 +1,161 @@
+#!/usr/bin/env bash
+
+# Hyprland Keybindings Viewer — Tofi Port (Omarchy Style)
+# Save as: ~/.local/bin/hypr-keybindings-tofi
+# chmod +x ~/.local/bin/hypr-keybindings-tofi
+# Optional bind: bind = SUPER, F1, exec, hypr-keybindings-tofi
+
+CONFIG="$HOME/.config/tofi/bindings"
+
+# Map keycodes to symbols using xkb (cached for speed)
+declare -A KEYCODE_SYM_MAP
+build_keymap_cache() {
+    local keymap
+    keymap=$(xkbcli compile-keymap 2>/dev/null) || return 1
+    while IFS=, read -r code sym; do
+        [[ -n "$code" && -n "$sym" ]] && KEYCODE_SYM_MAP["$code"]="$sym"
+    done < <(
+        awk '
+        BEGIN { sec = "" }
+        /xkb_keycodes/ { sec = "codes"; next }
+        /xkb_symbols/ { sec = "syms"; next }
+        sec == "codes" && match($0, /<([A-Za-z0-9_]+)>\s*=\s*([0-9]+)\s*;/, m) { code[m[1]] = m[2] }
+        sec == "syms" && match($0, /key\s*<([A-Za-z0-9_]+)>\s*\{\s*\[\s*([^, \]]+)/, m) { sym[m[1]] = m[2] }
+        END {
+            for (k in code) {
+                c = code[k]; s = sym[k]
+                if (c != "" && s != "" && s != "NoSymbol") print c "," s
+            }
+        }
+        ' <<<"$keymap"
+    )
+}
+
+lookup_keycode() {
+    local code="$1"
+    local sym="${KEYCODE_SYM_MAP[$code]}"
+    [[ -n "$sym" ]] && echo "$sym" || echo "code:$code"
+}
+
+# Parse raw binds from hyprctl
+dynamic_bindings() {
+    hyprctl -j binds | jq -r '.[]
+        | select(.dispatcher != "pass")
+        | "\(.modmask),\(.key)@\(.keycode),\(.description // ""),\(.dispatcher),\(.arg // "")"' |
+    sed -r \
+        -e 's/null//g' \
+        -e 's,~/.local/share/omarchy/bin/,,' \
+        -e 's,uwsm app -- ,,' \
+        -e 's,uwsm-app -- ,,' \
+        -e 's/@0//' \
+        -e 's/,@/,code:/' \
+        -e 's/^0,/,/' \
+        -e 's/^1,/SHIFT,/' \
+        -e 's/^4,/CTRL,/' \
+        -e 's/^5,/SHIFT CTRL,/' \
+        -e 's/^8,/ALT,/' \
+        -e 's/^9,/SHIFT ALT,/' \
+        -e 's/^12,/CTRL ALT,/' \
+        -e 's/^13,/SHIFT CTRL ALT,/' \
+        -e 's/^64,/SUPER,/' \
+        -e 's/^65,/SUPER SHIFT,/' \
+        -e 's/^68,/SUPER CTRL,/' \
+        -e 's/^69,/SUPER SHIFT CTRL,/' \
+        -e 's/^72,/SUPER ALT,/' \
+        -e 's/^73,/SUPER SHIFT ALT,/' \
+        -e 's/^76,/SUPER CTRL ALT,/' \
+        -e 's/^77,/SUPER SHIFT CTRL ALT,/'
+}
+
+# Optional static/extra binds (add your own if needed)
+static_bindings() {
+    cat <<EOF
+SUPER + SHIFT,Q,Quit Hyprland,exit,
+SUPER,T,Open Terminal,exec,terminal
+SUPER + SHIFT,C,Close Window,killactive,
+EOF
+}
+
+# Replace keycodes and mouse buttons
+parse_keycodes() {
+    while IFS= read -r line; do
+        if [[ "$line" =~ code:([0-9]+) ]]; then
+            code="${BASH_REMATCH[1]}"
+            sym=$(lookup_keycode "$code")
+            echo "${line/code:${code}/$sym}"
+        elif [[ "$line" =~ mouse:([0-9]+) ]]; then
+            case "${BASH_REMATCH[1]}" in
+                272) sym="LEFT MOUSE" ;;
+                273) sym="RIGHT MOUSE" ;;
+                274) sym="MIDDLE MOUSE" ;;
+                *) sym="mouse:${BASH_REMATCH[1]}" ;;
+            esac
+            echo "${line/mouse:${BASH_REMATCH[1]}/$sym}"
+        else
+            echo "$line"
+        fi
+    done
+}
+
+# Format: "SUPER + Q     →     Close window"
+format_bindings() {
+    awk -F, '
+    {
+        mods = $1
+        key = $2
+        desc = $3
+        gsub(/^[ \t]+|[ \t]+$/, "", mods)
+        gsub(/^[ \t]+|[ \t]+$/, "", key)
+        combo = mods
+        if (combo != "" && key != "") combo = combo " + "
+        combo = combo key
+
+        if (desc != "") {
+            action = desc
+        } else {
+            action = $4
+            if ($5 != "") action = action " " $5
+            gsub(/exec,? ?/, "", action)
+        }
+        gsub(/^[ \t]+|[ \t]+$/, "", action)
+
+        if (combo != "" && action != "") {
+            printf "%-30s → %.35s\n", combo, action
+        }
+    }'
+}
+
+# Sort by priority (important bindings at top)
+prioritize_entries() {
+    awk '
+    {
+        line = $0
+        prio = 99
+        if (match(line, /Terminal/)) prio = 0
+        else if (match(line, /Browser/)) prio = 1
+        else if (match(line, /File manager/)) prio = 2
+        else if (match(line, /Launch apps|drun/)) prio = 3
+        else if (match(line, /Omarchy menu|System menu/)) prio = 4
+        else if (match(line, /Full screen/)) prio = 7
+        else if (match(line, /Close window/)) prio = 8
+        else if (match(line, /floating|split/)) prio = 9
+        else if (match(line, /Clipboard/)) prio = 12
+        else if (match(line, /Emoji|Color picker/)) prio = 13
+        else if (match(line, /Screenshot/)) prio = 15
+        else if (match(line, /Screenrecording/)) prio = 16
+        else if (match(line, /workspace/)) prio = 17
+        print prio "\t" line
+    }' | sort -k1,1n | cut -f2-
+}
+
+# Build cache once
+build_keymap_cache
+
+# Generate full list
+{
+    dynamic_bindings
+    static_bindings
+} | sort -u | parse_keycodes | format_bindings | prioritize_entries |
+    tofi -c "$CONFIG" --prompt-text "  Keybindings : "
+
+exit 0

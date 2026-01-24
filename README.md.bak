@@ -1,0 +1,249 @@
+### Theme: Ghostpane
+
+![System Preview](assets/preview.png)
+
+## Omarchy walker inspired layout in Tofi
+
+![Application Launcher](assets/output.gif)
+
+## Tofi Configuration
+
+This repository provides configurations and scripts for **Tofi** (application launcher and clipboard menu) instead of Walker.
+
+> Note: This configuration is set up for matching **Catppuccin theme**. It may not match your current Omarchy theme. You can change the theme to your liking.
+
+---
+
+The `tofi/` directory contains styling and configuration files for Tofi.
+
+### Installation
+
+1. Copy the contents to your Tofi config directory:
+
+```bash
+mkdir -p ~/.config/tofi
+cp -r tofi/* ~/.config/tofi/
+```
+
+### Example Configs
+
+- `~/.config/tofi/configA` – application launcher
+- `~/.config/tofi/configC` – Keybindings
+- `~/.config/tofi/configV` – clipboard menu
+
+You may rename or modify these files as needed.
+
+2. Copy Omarchy scripts to the Omarchy bin directory:
+
+```bash
+mkdir -p ~/.local/share/omarchy/bin
+cp scripts/omarchy-keybindings-tofi scripts/omarchy-menu-tofi ~/.local/share/omarchy/bin
+chmod +x ~/.local/share/omarchy/bin/omarchy-*
+```
+
+---
+
+## Tofi Application Launcher
+
+1. Define the launcher command in `hyprland.conf`:
+
+```bash
+$menu = tofi-drun -c ~/.config/tofi/configA --drun-launch=true
+```
+
+2. Bind it:
+
+```bash
+bind = SUPER, Space, exec, $menu
+```
+
+You can change the keybinding or config file according to your preference.
+
+### Screenshot
+
+![Application Launcher](assets/applauncher.png)
+
+---
+
+## Tofi Main Menu
+
+1. Bind it in `hyprland.conf`
+
+```bash
+bind = SUPER, M, exec, omarchy-menu-tofi
+```
+
+> ### Screenshot
+>
+> ![Main Menu](assets/tofi-menu.png)
+
+Includes all the menu provided by default Omarchy walker.
+
+> To add more actions, edit the **Entry Point / Args Handling** section inside:
+
+```bash
+scripts/omarchy-menu-tofi
+```
+
+> You can also create additional keybindings that call `omarchy-menu-tofi` with arguments.
+
+---
+
+## Clipboard Manager (Tofi + Cliphist)
+
+### Clipboard Menu with Notifications
+
+1. Add this to your `hyprland.conf`.
+
+> Bind it to your preference.
+
+```bash
+bind = SUPER, V, exec, selected=$(cliphist list | tofi -c ~/.config/tofi/configV); [ -z "$selected" ] && exit 0; tmp=$(mktemp); echo "$selected" | cliphist decode > "$tmp"; wl-copy < "$tmp"; if file --dereference --brief --mime-type "$tmp" | grep -q "^image/"; then notify-send -t 1500 -i image-x-generic "Clipboard" "Image copied!"; else notify-send -t 1500 -i edit-copy "Clipboard" "Text copied!"; fi; rm "$tmp"exec-once = wl-paste --type text --watch cliphist store
+
+```
+
+Notifications are handled by **mako** (Omarchy default).
+
+### Clipboard Background Services
+
+1. Add these once in `autostart.conf`
+
+```bash
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+```
+
+2. Optional: clear clipboard history on reboot:
+
+```bash
+exec-once = rm "$HOME/.cache/cliphist/db"
+```
+
+### Clipboard Cleanup Shortcuts
+
+3. Optional: Add this to your `hyprland.conf` as well.
+
+```bash
+bind = SUPER SHIFT, V, exec, \
+cliphist list | tofi -c ~/.config/tofi/configV --prompt-text "󱘛 : " | cut -f1 | cliphist delete
+```
+
+Optional: Wipe entire clipboard history
+
+```bash
+bind = SUPER ALT, V, exec, cliphist wipe
+```
+
+### Screenshot
+
+![Clipboard](assets/clipboard.png)
+
+---
+
+## Keybindings Helper Menu
+
+Show all keybindings using Tofi:
+
+> Bind it in your `hyprland.conf`
+
+```bash
+bind = SUPER, K, Show key bindings, exec, omarchy-keybindings-tofi
+```
+
+### Screenshot
+
+![Keybindings](assets/keybindings.png)
+
+---
+
+
+## Waybar Timer Module
+
+Flexible timer for Waybar with mouse controls and CLI commands.
+
+![Timer Preview](waybar/scripts/assets/preview.gif)
+<!-- 
+### Features
+
+- Mouse controls and CLI commands for automation
+- Very Low/No CPU usage
+- Desktop notifications
+
+### Installation
+
+1. Copy the script to your desired directory:
+
+```bash
+mkdir -p ~/.config/waybar/scripts
+cp waybar/scripts/timer.sh ~/.config/waybar/scripts/
+chmod +x ~/.config/waybar/scripts/timer.sh
+```
+
+2. Add to Waybar config (`~/.config/waybar/config.jsonc`):
+
+```jsonc
+"custom/timer": {
+    "exec": "~/.config/waybar/scripts/timer.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/timer.sh click",
+    "on-click-right": "~/.config/waybar/scripts/timer.sh right",
+    "on-click-middle": "~/.config/waybar/scripts/timer.sh middle",
+    "on-scroll-up": "~/.config/waybar/scripts/timer.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/timer.sh down",
+    "tooltip": true
+}
+```
+
+### Usage
+
+**Mouse Controls:**
+- Left Click: Primary action (cycle through states)
+- Right Click: Secondary action (presets/disable)
+- Middle Click: Reset timer
+- Scroll Up: Add 1 minute
+- Scroll Down: Subtract 1 minute
+
+**CLI Commands:**
+```bash
+~/.config/waybar/scripts/timer.sh 10s     # 10 seconds
+~/.config/waybar/scripts/timer.sh 5m      # 5 minutes
+~/.config/waybar/scripts/timer.sh 1hr     # 1 hour
+```
+
+### Screenshot
+
+Desktop notification when timer completes:
+
+![Timer Notification](waybar/scripts/assets/notification.png)
+
+For detailed documentation, see: [waybar/scripts/README.md](waybar/scripts/README.md)
+
+--- -->
+
+## Hyprland File Organization
+
+You can place configuration in any file inside `~/.config/hypr/`.
+
+### Example layout:
+
+```
+hypr/
+├── autostart.conf
+├── bindings.conf
+├── hyprland.conf
+├── ....
+```
+
+Source them from `hyprland.conf`:
+
+> Note: You can change the keybinding or config file according to your preference.
+---
+
+### Hyprlock
+![hyprlock](assets/hyprlock.png)
+
+---
+
+### Wlogout
+![wlogout](assets/wlogout.png)

@@ -1,0 +1,45 @@
+[window]
+decorations = "none"
+padding = { x = 18, y = 14 }
+opacity = 0
+
+[font]
+size = 12.0
+
+[colors]
+
+[colors.primary]
+background = "#000000"
+foreground = "#bfbfbf"
+
+[colors.cursor]
+text = "#bfbfbf"
+cursor = "#bfbfbf"
+
+[colors.normal]
+black   = "#2b2d31"
+red     = "#bfbfbf"
+green   = "#767676"
+yellow  = "#9e9e9e"
+blue    = "#bfbfbf"
+magenta = "#bfbfbf"
+cyan    = "#bfbfbf"
+white   = "#e0e0e0"
+
+[colors.bright]
+black   = "#505258"
+red     = "#bfbfbf"
+green   = "#a2ee8b"
+yellow  = "#ffd86f"
+blue    = "#97b6ff"
+magenta = "#bfbfbf"
+cyan    = "#bfbfbf"
+white   = "#bfbfbf"
+
+[colors.selection]
+text = "#ffffff"
+background = "#666666"
+
+[colors.vi_mode_cursor]
+text   = "#ffffff"
+cursor = "#bfbfbf"

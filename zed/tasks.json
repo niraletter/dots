@@ -1,0 +1,31 @@
+[
+  {
+    "label": "go",
+    "command": "go run",
+    "args": ["$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true
+  },
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "env": {},
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "reveal": "always",
+    "reveal_target": "center",
+    "hide": "always",
+    "shell": "system"
+  },
+  {
+    "label": "gitui",
+    "command": "gitui",
+    "env": {},
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "reveal": "always",
+    "reveal_target": "center",
+    "hide": "always",
+    "shell": "system"
+  }
+]
