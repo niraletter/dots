@@ -1,0 +1,186 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/omarchy/branding/about.txt",
+    "type": "file",
+    "color": {
+      "1": "yellow",
+      "2": "green",
+      "3": "white",
+      "4": "black"
+    },
+    "padding": {
+      "top": 2,
+      "left": 2,
+      "right": 4
+    }
+  },
+  "display": {
+    "bar": {
+      "char": {
+        "total": "─"
+      },
+      "width": 8
+    },
+    "percent": {
+      "type": 3,
+      "ndigits": 2
+    },
+    "key": {
+      "width": 8
+    },
+    "color": "blink_",
+    "separator": " : "
+  },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "key": "  ",
+      "keyWidth": 4,
+      "keyColor": "cyan",
+      "format": "{#36}{1}@{2}"
+    },
+    {
+      "type": "datetime",
+      "key": " ",
+      "format": " {#white}󰃮 {1}-{4}-{10} {14}:{18}:{20} ({22})"
+    },
+    "break",
+    {
+      "type": "custom",
+      "key": "╭─System─────-──────────────────────────────────────╮",
+      "keyColor": "green"
+    },
+    {
+      "type": "host",
+      "key": "│ ├",
+      "keyColor": "green"
+    },
+    {
+      "type": "command",
+      "key": "│ ├",
+      "keyColor": "green",
+      "text": "version=$(omarchy-version); echo \"Omarchy $version\""
+    },
+    {
+      "type": "wm",
+      "key": "│ ├",
+      "keyColor": "green",
+      "format": "Rectangle 0.93"
+    },
+    {
+      "type": "packages",
+      "key": "│ ├󰏖",
+      "keyColor": "green"
+    },
+    {
+      "type": "uptime",
+      "key": "│ ├󰥔",
+      "keyColor": "green"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────-──────────────────────────────────────╯",
+      "keyColor": "green"
+    },
+    {
+      "type": "custom",
+      "key": "╭─Terminal───-────────────────────────────────────────╮",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "shell",
+      "key": "│ ├",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "terminal",
+      "key": "│ ├",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "terminalfont",
+      "key": "│ ├",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "terminalsize",
+      "key": "│ ├󰘖",
+      "keyColor": "yellow",
+      "format": "{1} colums × {2} rows ({3}px × {4}px)"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────-────────────────────────────────────────╯",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "custom",
+      "key": "╭─Hardware───-─────────────────────────────────────────────────╮",
+      "keyColor": "red"
+    },
+    {
+      "type": "display",
+      "key": "│ ├󰍹",
+      "keyColor": "red",
+      "format": "{1}×{2}, {3}Hz [{7}]"
+    },
+    {
+      "type": "cpu",
+      "key": "│ ├",
+      "keyColor": "red",
+      "format": "{1} [{3} cores]"
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├󰢮",
+      "keyColor": "red"
+    },
+    {
+      "type": "memory",
+      "key": "│ ├",
+      "keyColor": "red"
+    },
+    {
+      "type": "disk",
+      "key": "│ ├",
+      "keyColor": "red",
+      "format": "{13} {1} / {2} ({3})"
+    },
+    {
+      "type": "battery",
+      "key": "│ ├",
+      "keyColor": "red",
+      "format": "{10} {4} ({5})"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────-─────────────────────────────────────────────────╯",
+      "keyColor": "red"
+    },
+    {
+      "type": "colors",
+      "key": "╭─Media──────-──────────────────────────────────────────────╮",
+      "keyColor": "blue",
+      "symbol": "diamond"
+    },
+    {
+      "type": "media",
+      "key": "│ ├",
+      "keyColor": "blue",
+      "format": "\"{1}\" - {#1}{3}{#}"
+    },
+    {
+      "type": "sound",
+      "key": "│ ├󰋋",
+      "keyColor": "blue",
+      "format": "{2:20}{5} {3}"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────-──────────────────────────────────────────────╯",
+      "keyColor": "blue"
+    }
+  ]
+}
