@@ -4,12 +4,12 @@ border-width = 0
 outline-width = 0
 padding-top = 33%
 padding-left = 15%
-padding-right = 20%
+padding-right = 18%
 result-spacing = 25
-num-results = 8
+num-results = 5
 
-font = CaskaydiaMono Nerd Font 
-font-size = 20
+font = CaskaydiaMono Nerd Font
+font-size = 18
 
 
 text-color = #595959
@@ -17,5 +17,5 @@ text-color = #595959
 prompt-text =" : "
 
 
-background-color = #000000D9
+background-color = #000000C9
 selection-color = #bfbfbf

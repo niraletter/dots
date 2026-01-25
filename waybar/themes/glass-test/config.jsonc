@@ -40,7 +40,7 @@
     "disable-scroll": false,
     "all-outputs": true,
     "on-click": "activate",
-    "format": "{name} {windows}",
+    "format": "{name} ",
     // "formaft-window-separator": " | ",
     "window-rewrite-default": "{}",
     "workspace-taskbar": {
