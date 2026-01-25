@@ -216,7 +216,7 @@
     // "format": "BAT {icon} 󱈏 {capacity}%",
     "format": "BAT  󰚦  ",
 
-    "format-discharging": "BAT {icon} ",
+    "format-discharging": "BAT {icon}  ",
     "format-charging": "BAT {icon}   ",
     // "format-plugged": "BAT {icon} 󱈏",
     "format-plugged": "BAT  󰚦  ",
@@ -239,7 +239,7 @@
         "",
       ],
     },
-    "format-full": "BAT  {icon} ",
+    "format-full": "BAT    ",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 2,
