@@ -9,13 +9,8 @@ num-results =10
 history = false
 font = CaskaydiaMono Nerd Font
 font-size = 19
-
 text-color = #595959B5
-
-
 prompt-text = ">_ : "
-
-
 background-color = #000000D9
 selection-color = #bfbfbf
 clip-to-padding = true

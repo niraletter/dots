@@ -1,4 +1,7 @@
 {
+  "file_finder": {
+    "git_status": true
+  },
   "session": {
     "trust_all_worktrees": true
   },
