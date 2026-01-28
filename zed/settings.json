@@ -1,4 +1,7 @@
 {
+  "session": {
+    "trust_all_worktrees": true
+  },
   "edit_predictions": {
     "mode": "eager",
   },
