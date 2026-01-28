@@ -185,7 +185,7 @@ Check out the latest updates and improvements! See [Release Notes](https://githu
 
 4. **Setup sound effects (optional)**
 
-   Create the sounds directory:
+   Create the sounds directory if it's not already:
 
    ```bash
    mkdir -p ~/.config/waybar/sounds
@@ -214,6 +214,9 @@ Check out the latest updates and improvements! See [Release Notes](https://githu
    ```
 
    The script uses `paplay` (compatible with both PulseAudio and PipeWire) to play sounds.
+
+> [!NOTE]
+> The above quick installation script automatically creates and puts the audio file in your `.config/waybar/sounds`
 
 5. **Restart your waybar**
 
@@ -250,10 +253,6 @@ Now use: `timer 20m5s`, `timer 1h30s`, `pomo 25m5m4s`, `pomo 40 10 2` etc.
 
 ## Usage
 
-Based on the `CONTROLLER` logic in the script you provided, here is the updated **Mouse Controls** section for your README.
-
-I have updated the table to reflect the specific behaviors found in your script, particularly regarding **Right Click** (which behaves differently in Standard vs. Pomodoro modes) and the **Scroll** logic.
-
 ### Mouse Controls
 
 | Input            | State              | Behavior                                                     |
@@ -275,12 +274,6 @@ I have updated the table to reflect the specific behaviors found in your script,
 |                  | Any other state    | **Decrease Time** (-1 minute)                                |
 
 ---
-
-### How to paste this into your README:
-
-1.  Open `README.md`.
-2.  Find the `### Mouse Controls` section.
-3.  Replace the existing table with the Markdown code above.
 
 ### CLI commands
 
