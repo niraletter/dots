@@ -3,8 +3,8 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "margin-left": 1,
-  "margin-right": 1,
+  // "margin-left": 1,
+  // "margin-right": 1,
   "height": 26,
   "modules-left": [
     "custom/omarchy",
@@ -53,7 +53,7 @@
     },
   },
   "custom/omarchy": {
-    "format": "",
+    "format": "<span font='omarchy'>\ue900</span>",
     "on-click": "omarchy-menu-tofi",
     "tooltip-format": "Menu",
   },

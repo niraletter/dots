@@ -1,0 +1,80 @@
+# Custom btop theme based on your grayscale palette
+
+# Main background
+theme[main_bg]=""
+
+# Main text color
+theme[main_fg]="#DDDDDD"
+
+# Title color for boxes
+theme[title]="#CACCCA"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#8F8F8F"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#353436"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#DDDDDD"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#4C4D4D"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#9E9E9E"
+
+# Cpu box outline color
+theme[cpu_box]="#272727"
+
+# Memory/disks box outline color
+theme[mem_box]="#272727"
+
+# Net up/down box outline color
+theme[net_box]="#272727"
+
+# Processes box outline color
+theme[proc_box]="#272727"
+
+# Box divider line and small boxes line color
+theme[div_line]="#323232"
+
+# Temperature graph colors
+theme[temp_start]="#373636"
+theme[temp_mid]="#474646"
+theme[temp_end]="#DDDDDD"
+
+# CPU graph colors
+theme[cpu_start]="#373636"
+theme[cpu_mid]="#474646"
+theme[cpu_end]="#DDDDDD"
+
+# Mem/Disk free meter
+theme[free_start]="#373636"
+theme[free_mid]="#474646"
+theme[free_end]="#DDDDDD"
+
+# Mem/Disk cached meter
+theme[cached_start]="#373636"
+theme[cached_mid]="#474646"
+theme[cached_end]="#DDDDDD"
+
+# Mem/Disk available meter
+theme[available_start]="#373636"
+theme[available_mid]="#474646"
+theme[available_end]="#DDDDDD"
+
+# Mem/Disk used meter
+theme[used_start]="#373636"
+theme[used_mid]="#474646"
+theme[used_end]="#DDDDDD"
+
+# Download graph colors
+theme[download_start]="#373636"
+theme[download_mid]="#474646"
+theme[download_end]="#DDDDDD"
+
+# Upload graph colors
+theme[upload_start]="#373636"
+theme[upload_mid]="#474646"
+theme[upload_end]="#DDDDDD"

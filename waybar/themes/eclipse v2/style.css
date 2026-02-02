@@ -8,10 +8,9 @@
 }
 
 window#waybar {
-    border-radius: 20px;
     background-color: @background;
-    border-left: 1.5px solid @foreground;
-    border-right: 1.5px solid @foreground;
+    /*border-left: 1.5px solid @foreground;
+    border-right: 1.5px solid @foreground;*/
 }
 
 .modules-left {
@@ -26,7 +25,8 @@ window#waybar {
     /*border-left: 1px solid @foreground;
     border-right: 1px solid @foreground;*/
 
-    border-bottom: 2px solid @foreground;
+    border-top: 1.5px solid alpha(@foreground, 0.6);
+    border-left: 1.5px solid alpha(@foreground, 0.6);
     border-radius: 20px;
 }
 
@@ -39,9 +39,11 @@ window#waybar {
 #workspaces button {
     all: initial;
     padding: 0 15px;
-    margin: 0 0px;
+    margin: 0 3px;
     min-width: 9px;
-    border-left: 1.5px solid @foreground;
+    border-top: 1.5px solid alpha(@foreground, 0.6);
+    border-left: 1.5px solid alpha(@foreground, 0.6);
+
     border-radius: 20px;
 
     /*border-radius: 3px;*/
@@ -87,9 +89,8 @@ window#waybar.empty #window {
 }
 #custom-omarchy {
     border-right: none;
-    padding-right: 2px;
+    padding-right: 3px;
     font-size: 13;
-    margin: 0 12px;
 }
 
 /*#custom-analog-clock {
@@ -113,22 +114,34 @@ window#waybar.empty #window {
     border-radius: 20px;
 }*/
 #pulseaudio {
+    border-right: 1.5px solid alpha(@foreground, 0.6);
+    border-top: 1.5px solid alpha(@foreground, 0.6);
+    padding: 0 10px;
     margin-right: 15px;
-    border-right: 1.5px solid @foreground;
     border-radius: 20px;
 }
 
 #network {
     margin-right: 10px;
-    border-right: 1.5px solid @foreground;
+    border-right: 1.5px solid alpha(@foreground, 0.6);
+    border-top: 1.5px solid alpha(@foreground, 0.6);
+    padding: 0 10px;
     border-radius: 20px;
 }
 #memory {
     margin-right: 15px;
-    border-right: 1.5px solid @foreground;
+    border-right: 1.5px solid alpha(@foreground, 0.6);
+    border-top: 1.5px solid alpha(@foreground, 0.6);
+    padding: 0 10px;
     border-radius: 20px;
 }
 
+#battery {
+    border-right: 1.5px solid alpha(@foreground, 0.6);
+    border-top: 1.5px solid alpha(@foreground, 0.6);
+    padding: 0 10px;
+    border-radius: 20px;
+}
 /*#cpu {
     margin-right: 15px;
     border-right: 1.5px solid @foreground;

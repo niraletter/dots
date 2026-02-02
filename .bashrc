@@ -29,19 +29,14 @@ export PATH="$HOME/.govm/shim:$PATH"
 
 export PATH=$PATH:~/.spicetify
 
-# fzf Ctrl+F directory navigation
 fzf_cd_widget() {
-  # let the user select a directory
   local selected
   selected=$(fd --type d --hidden --follow --exclude ".git" . "$HOME" | fzf --height=40% --layout=reverse --border)
   if [[ -n "$selected" ]]; then
-    # change directory in current shell
     builtin cd "$selected" || return
-    # update the prompt immediately
      printf '\e[38;2;191;191;191m'
     pwd
   fi
 }
 
-# Bind Ctrl+F using readline
 bind -x '"\C-f": fzf_cd_widget'
