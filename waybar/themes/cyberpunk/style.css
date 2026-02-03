@@ -24,21 +24,30 @@ window#waybar {
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) bottom left,
+        linear-gradient(@foreground, @foreground) bottom left,
         linear-gradient(@foreground, @foreground) bottom right,
         linear-gradient(@foreground, @foreground) bottom right;
     background-size:
-        20px 0.5px,
-        0.5px 20px,
-        20px 0.5px,
-        0.5px 20px;
+        8px 0.5px,
+        0.5px 8px,
+        0.5px 8px,
+        8px 0.5px,
+        0.5px 8px,
+        8px 0.5px,
+        0.5px 8px;
     background-repeat: no-repeat;
     background-position:
         top left,
         top left,
+        top right,
+        top right,
+        bottom left,
+        bottom left,
         bottom right,
         bottom right;
-    /*border-left: 1px solid @foreground;
-    border-right: 1px solid @foreground;*/
 }
 
 .modules-right {
@@ -47,17 +56,28 @@ window#waybar {
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) bottom left,
+        linear-gradient(@foreground, @foreground) bottom left,
         linear-gradient(@foreground, @foreground) bottom right,
         linear-gradient(@foreground, @foreground) bottom right;
     background-size:
-        20px 0.5px,
-        0.5px 20px,
-        20px 0.5px,
-        0.5px 20px;
+        8px 0.7px,
+        0.7px 8px,
+        0.7px 8px,
+        8px 0.7px,
+        0.7px 8px,
+        8px 0.7px,
+        0.7px 8px;
     background-repeat: no-repeat;
     background-position:
         top left,
         top left,
+        top right,
+        top right,
+        bottom left,
+        bottom left,
         bottom right,
         bottom right;
 }
@@ -78,17 +98,28 @@ window#waybar {
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) bottom left,
+        linear-gradient(@foreground, @foreground) bottom left,
         linear-gradient(@foreground, @foreground) bottom right,
         linear-gradient(@foreground, @foreground) bottom right;
     background-size:
-        20px 0.5px,
-        0.5px 20px,
-        20px 0.5px,
-        0.5px 20px;
+        8px 0.5px,
+        0.5px 8px,
+        0.5px 8px,
+        8px 0.5px,
+        0.5px 8px,
+        8px 0.5px,
+        0.5px 8px;
     background-repeat: no-repeat;
     background-position:
         top left,
         top left,
+        top right,
+        top right,
+        bottom left,
+        bottom left,
         bottom right,
         bottom right;
 }
@@ -101,17 +132,28 @@ window#waybar {
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) bottom left,
+        linear-gradient(@foreground, @foreground) bottom left,
         linear-gradient(@foreground, @foreground) bottom right,
         linear-gradient(@foreground, @foreground) bottom right;
     background-size:
-        20px 0.5px,
-        0.5px 20px,
-        20px 0.5px,
-        0.5px 20px;
+        8px 0.5px,
+        0.5px 8px,
+        0.5px 8px,
+        8px 0.5px,
+        0.5px 8px,
+        8px 0.5px,
+        0.5px 8px;
     background-repeat: no-repeat;
     background-position:
         top left,
         top left,
+        top right,
+        top right,
+        bottom left,
+        bottom left,
         bottom right,
         bottom right;
 }
@@ -142,11 +184,12 @@ window#waybar.empty #window {
     font-size: 12;
 }
 #custom-omarchy {
-    border-right: none;
     padding-right: 3px;
-    font-size: 13;
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
+#custom-omarchy:hover {
+    font-size: 14;
+}
 /*#custom-analog-clock {
     font-family: "SimpleAnalogClockFont";
     font-size: 11px;
@@ -155,13 +198,18 @@ window#waybar.empty #window {
 }*/
 
 #tray {
-    margin-right: 10px;
-    padding-right: 12;
-    border-right: 1.5px solid @foreground;
+    margin-left: 10px;
+    padding-right: 10;
 }
-
+#custom-record {
+    margin-left: 10px;
+    margin-right: 20px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#custom-record:hover {
+    padding: 0 10px;
+}
 #bluetooth {
-    margin-left: 15px;
     margin-right: 20px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -172,7 +220,6 @@ window#waybar.empty #window {
 #pulseaudio {
     margin-right: 25px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-
 }
 #pulseaudio:hover {
     padding: 0 10px;
@@ -181,7 +228,6 @@ window#waybar.empty #window {
 #network {
     margin-right: 25px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-
 }
 #network:hover {
     padding: 0 10px;
@@ -190,16 +236,14 @@ window#waybar.empty #window {
 #memory {
     margin-right: 10px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-
 }
 #memory:hover {
     padding: 0 10px;
 }
 
 #battery {
-    margin-right: 25px;
+    margin-right: 20px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-
 }
 #battery:hover {
     padding: 0 10px;
@@ -208,7 +252,6 @@ window#waybar.empty #window {
 #cpu {
     margin-right: 20px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-
 }
 #cpu:hover {
     padding: 0 10px;
@@ -226,17 +269,28 @@ tooltip {
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) top right,
+        linear-gradient(@foreground, @foreground) bottom left,
+        linear-gradient(@foreground, @foreground) bottom left,
         linear-gradient(@foreground, @foreground) bottom right,
         linear-gradient(@foreground, @foreground) bottom right;
     background-size:
-        20px 0.5px,
-        0.5px 20px,
-        20px 0.5px,
-        0.5px 20px;
+        10px 0.8px,
+        0.8px 10px,
+        0.8px 10px,
+        10px 0.8px,
+        0.8px 10px,
+        10px 0.8px,
+        0.8px 10px;
     background-repeat: no-repeat;
     background-position:
         top left,
         top left,
+        top right,
+        top right,
+        bottom left,
+        bottom left,
         bottom right,
         bottom right;
     background-color: @background;

@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 25,
+  "height": 26,
   "modules-left": [
     "custom/omarchy",
     // "custom/timer",
@@ -18,11 +18,12 @@
   "modules-right": [
     // "custom/voxtype",
     "tray",
+    "custom/record",
     "bluetooth",
     "network",
     "pulseaudio",
     "battery",
-    "cpu",
+    // "cpu",
     // "temperature",
 
     // "power-profiles-daemon",
@@ -38,7 +39,7 @@
     "workspace-taskbar": {
       "enable": true,
       "format": "{icon}",
-      "icon-size": 16,
+      "icon-size": 14,
       "icon-theme": "nord-mono-light",
     },
     "sort-by-number": true,
@@ -207,7 +208,11 @@
       "default": ["", "", ""],
     },
   },
-
+  "custom/record": {
+    "format": "",
+    "tooltip-format": "Record",
+    "on-click": "omarchy-cmd-screenrecord --with-desktop-audio",
+  },
   // "group/tray-expander": {
   //   "orientation": "inherit",
   //   "drawer": {
