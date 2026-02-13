@@ -128,7 +128,7 @@ window#waybar {
     /*background: transparent;*/
 }
 #workspaces button:hover {
-    padding: 0 10px;
+    /*padding: 0 10px;*/
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
