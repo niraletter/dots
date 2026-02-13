@@ -204,57 +204,32 @@ window#waybar.empty #window {
 #custom-record {
     margin-left: 10px;
     margin-right: 20px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-#custom-record:hover {
-    padding: 0 10px;
-}
+
 #bluetooth {
     margin-right: 20px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-#bluetooth:hover {
-    padding: 0 10px;
 }
 
 #pulseaudio {
     margin-right: 25px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-#pulseaudio:hover {
-    padding: 0 10px;
 }
 
 #network {
     margin-right: 25px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-#network:hover {
-    padding: 0 10px;
 }
 
 #memory {
     margin-right: 10px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-#memory:hover {
-    padding: 0 10px;
 }
 
 #battery {
     margin-right: 20px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-#battery:hover {
-    padding: 0 10px;
-}
 
 #cpu {
     margin-right: 20px;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-#cpu:hover {
-    padding: 0 10px;
 }
 
 /*#power-profiles-daemon {
@@ -301,9 +276,6 @@ tooltip {
     font-size: 13;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-#clock:hover {
-    padding: 0 15px;
-}
 
 .hidden {
     opacity: 0;
@@ -330,16 +302,6 @@ tooltip {
         color: @background;
     }
 }
-
-/*#custom-voxtype {
-    min-width: 22px;
-    font-size: 15px;
-    margin-right: 10px;
-}
-
-#custom-voxtype.recording {
-    color: @background;
-}*/
 
 /*
 #custom-timer {
