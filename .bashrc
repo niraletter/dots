@@ -10,13 +10,11 @@ source ~/.local/share/omarchy/default/bash/rc
 # Make an alias for invoking commands you use constantly
 # alias p='python'
 
-# alias for zed
+#  zed
 alias zed='zeditor'
 
-# alias for timer
-#alias timer='~/.config/waybar/scripts/timer.sh'
-#alias pomo='~/.config/waybar/scripts/timer.sh pomo'
-
+# trash-cli
+alias rm='trash'
 
 # Go path
 export GOPATH="$HOME/go"
@@ -24,11 +22,9 @@ export GOBIN="$GOPATH/bin"
 export PATH="$PATH:/usr/local/go/bin:$GOBIN"
 
 # govm
-. "$HOME/.local/share/../bin/env"
-export PATH="$HOME/.govm/shim:$PATH"
+# export PATH="$HOME/.govm/shim:$PATH"
 
-export PATH=$PATH:~/.spicetify
-
+# fzf Ctrl+F directory navigation
 fzf_cd_widget() {
   local selected
   selected=$(fd --type d --hidden --follow --exclude ".git" . "$HOME" | fzf --height=40% --layout=reverse --border)
@@ -39,4 +35,5 @@ fzf_cd_widget() {
   fi
 }
 
+# Bind Ctrl+F using readline
 bind -x '"\C-f": fzf_cd_widget'
