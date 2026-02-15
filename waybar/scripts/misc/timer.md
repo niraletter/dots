@@ -1,3 +1,4 @@
+
 # Waybar Pomodoro Timer
 
 A highly efficient, timer and pomodoro module for Waybar with mouse controls and CLI commands.
