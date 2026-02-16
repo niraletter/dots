@@ -84,7 +84,7 @@ window#waybar {
 
 #workspaces button {
     all: initial;
-    padding: 0 10px;
+    padding: 0 15px;
     margin: 0 3px;
     min-width: 9px;
     /*border-radius: 3px;*/
@@ -94,7 +94,7 @@ window#waybar {
 
 #workspaces button.active {
     min-width: 10px;
-    padding: 0 15;
+    /*padding: 0 15;*/
     background:
         linear-gradient(@foreground, @foreground) top left,
         linear-gradient(@foreground, @foreground) top left,
