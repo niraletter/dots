@@ -5,6 +5,7 @@
     color: @foreground;
     font-family: "CaskaydiaMono Nerd Font";
     font-size: 12px;
+    /*transition: all 0.3s ease;*/
 }
 
 window#waybar {
