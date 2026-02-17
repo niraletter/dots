@@ -85,7 +85,7 @@ window#waybar {
 
 #workspaces button {
     all: initial;
-    padding: 0 13px;
+    padding: 0 10px;
     margin: 0 3px;
     min-width: 9px;
     /*border-radius: 3px;*/

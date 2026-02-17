@@ -44,7 +44,7 @@
     },
     "sort-by-number": true,
     "persistent-workspaces": {
-      "*": 4,
+      "*": 5,
     },
   },
   "custom/omarchy": {
