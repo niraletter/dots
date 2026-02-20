@@ -1,4 +1,4 @@
-@import "../omarchy/current/theme/waybar.css";
+    @import "../omarchy/current/theme/waybar.css";
 
 * {
     background-color: transparent;
@@ -185,7 +185,7 @@ window#waybar.empty #window {
     font-size: 12;
 }
 #custom-omarchy {
-    font-size: 12.5;
+    font-size: 15;
 
     transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
