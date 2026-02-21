@@ -110,6 +110,6 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Gruvbox Material",
+    "dark": "Gruvbox Dark",
   },
 }
