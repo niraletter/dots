@@ -40,7 +40,7 @@
       "enable": true,
       "format": "{icon}",
       "icon-size": 14,
-      "icon-theme": "gruvbox",
+      "icon-theme": "YAMIS",
     },
     "sort-by-number": true,
     "persistent-workspaces": {
