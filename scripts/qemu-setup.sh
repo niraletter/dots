@@ -92,7 +92,13 @@ do_remove() {
     fi
     _ensure_sudo
     case "$PM" in
-        pacman) $ESC pacman -Rdd --noconfirm "$pkg" ;;
+        pacman)
+            if [ "$pkg" = "libvirt" ]; then
+                $ESC pacman -Rddn --noconfirm "$pkg"
+            else
+                $ESC pacman -Rns --noconfirm "$pkg"
+            fi
+            ;;
         apt)    $ESC apt remove -y "$pkg" ;;
         dnf)    $ESC dnf remove -y "$pkg" ;;
     esac
@@ -104,9 +110,9 @@ do_remove() {
 svc_stop_disable() {
     local svc="$1"
     systemctl is-active  --quiet "$svc" 2>/dev/null \
-        && { spin "Stopping $svc..."  $ESC systemctl stop    "$svc"; ok "Stopped $svc"; }
+        && { $ESC systemctl stop    "$svc"; ok "Stopped $svc"; }
     systemctl is-enabled --quiet "$svc" 2>/dev/null \
-        && { spin "Disabling $svc..." $ESC systemctl disable "$svc"; ok "Disabled $svc"; }
+        && { $ESC systemctl disable "$svc"; ok "Disabled $svc"; }
 }
 
 svc_enable() {
@@ -147,7 +153,7 @@ check_virt() {
 
 add_kvm_group() {
     [ ! -e /dev/kvm ] && warn "Skipping kvm group — /dev/kvm not found" && return
-    spin "Adding $USER to kvm group..." $ESC usermod "$USER" -aG kvm
+    sudo usermod "$USER" -aG kvm
     ok "$USER → kvm (re-login required)"
 }
 
