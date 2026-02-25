@@ -9,8 +9,8 @@
     "mode": "eager",
   },
   "extend_comment_on_newline": true,
-  "ui_font_family": "CaskaydiaMono Nerd Font",
-  "buffer_font_family": "CaskaydiaMono Nerd Font",
+  "ui_font_family": "Departure Mono",
+  "buffer_font_family": "Departure Mono",
   "vim_mode": false,
   "scrollbar": {
     "git_diff": true,
@@ -44,7 +44,7 @@
   "search": {
     "button": false,
   },
-  
+
   // "agent": {
   //   "button": false,
   //   "favorite_models": [],
@@ -82,12 +82,12 @@
   "agent_ui_font_size": 16.0,
   "zoomed_padding": true,
   "terminal": {
-    "font_family": "CaskaydiaMono Nerd Font",
-    // "font_weight": 100.0,
+    "font_family": "Departure Mono",
+    "font_weight": 100.0,
 
-    "shell": "system",
-    "button": true,
-    "dock": "bottom",
+    // "shell": "system",
+    "button": false,
+    // "dock": "bottom",
   },
   "telemetry": {
     "diagnostics": false,
@@ -116,7 +116,7 @@
     "button": false,
   },
   "collaboration_panel": {
-    "button": true,
+    "button": false,
   },
   "notification_panel": {
     "button": false,
