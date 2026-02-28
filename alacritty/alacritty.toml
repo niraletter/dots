@@ -25,3 +25,6 @@ bindings = [
 { key = "Insert", mods = "Control", action = "Copy" },
 { key = "V", mods = "Control", action = "Paste" }
 ]
+
+[terminal]
+osc52 = "CopyPaste"
