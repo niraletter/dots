@@ -6,7 +6,6 @@
   "height": 26,
   "modules-left": [
     "custom/omarchy",
-    // "custom/timer",
     "hyprland/workspaces",
   ],
 
@@ -52,6 +51,20 @@
     "on-click": "omarchy-menu-tofi",
     "tooltip-format": "Menu",
   },
+  // define the module
+  "custom/timer": {
+    "exec": "~/.config/waybar/scripts/timer.sh",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/timer.sh click",
+    "on-click-right": "~/.config/waybar/scripts/timer.sh right",
+    "on-click-middle": "~/.config/waybar/scripts/timer.sh middle",
+    "on-scroll-up": "~/.config/waybar/scripts/timer.sh down",
+    "on-scroll-down": "~/.config/waybar/scripts/timer.sh up",
+    "tooltip": true,
+    "escape": true,
+  },
+
   "custom/update": {
     "format": " ",
     "exec": "omarchy-update-available",
