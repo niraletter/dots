@@ -7,7 +7,7 @@ PRESETS=(60 300 600 900 1200 1500 1800 2700 3000 3600 4500 5400 6300 7200 9000 1
 SCROLL_STEP=60
 INACTIVITY_LIMIT=30
 
-# --- POMODORO INITIAL PRESET ---
+# --- POMODORO PRESET ---
 POMO_PRESETS=(
     "25 5 4"
 )
@@ -43,9 +43,9 @@ ICON_POMO_DONE=""
 ICON_POMO_BREAK=""
 
 
-# Files (Stored in RAM)
 STATE_FILE="/dev/shm/waybar_timer.json"
-PIPE_FILE="/tmp/waybar_timer.fifo"
+PIPE_FILE="/tmp/waybar_timer_$$.fifo"
+
 
 # --- HELPER FUNCTION FOR SOUND ---
 play_sound() {
@@ -60,7 +60,6 @@ play_sound() {
 }
 
 # STATE MANAGEMENT
-
 init_state() {
     printf -v NOW '%(%s)T' -1
     echo "DISABLED|0|0|0|$NOW|0|0|0|1|1|5|1|0" > "$STATE_FILE"
@@ -86,9 +85,9 @@ format_time() {
 }
 
 trigger_update() {
-    if [ -p "$PIPE_FILE" ]; then
-        echo "1" > "$PIPE_FILE" &
-    fi
+    for f in /tmp/waybar_timer_*.fifo; do
+        [ -p "$f" ] && echo "1" > "$f" &
+    done
 }
 
 # CONTROLLER
@@ -199,7 +198,7 @@ if [ -n "$1" ]; then
             if [ "$POMO_ENABLED" != true ]; then
                 exit 0
             fi
-            shift 
+            shift
             ARGS="$*"
 
             # Defaults
@@ -369,21 +368,12 @@ fi
 PID_FILE="/tmp/waybar_timer.pid"
 
 cleanup() {
-    # Close FD 3 if open
     exec 3>&-
     rm -f "$PIPE_FILE" "$PID_FILE"
     exit 0
 }
 
 trap cleanup SIGTERM SIGINT EXIT
-
-if [ -f "$PID_FILE" ]; then
-    OLD_PID=$(cat "$PID_FILE")
-    if [ -n "$OLD_PID" ] && [ "$OLD_PID" != "$$" ] && kill -0 "$OLD_PID" 2>/dev/null; then
-        kill "$OLD_PID" 2>/dev/null
-    fi
-fi
-echo $$ > "$PID_FILE"
 
 if [ ! -f "$STATE_FILE" ]; then init_state; fi
 
@@ -428,7 +418,7 @@ while true; do
             TOOLTIP="Timer Disabled\nLeft Click: Activate"
             echo "{\"text\": \"$ICON\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
 
-            read -n 1 _ <&3
+            read -t 1 -n 1 _ <&3
             continue ;;
 
         "IDLE")

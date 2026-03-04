@@ -4,10 +4,7 @@
   "position": "top",
   "spacing": 0,
   "height": 26,
-  "modules-left": [
-    "custom/omarchy",
-    "hyprland/workspaces",
-  ],
+  "modules-left": ["custom/omarchy", "hyprland/workspaces"],
 
   "modules-center": [
     "clock",
@@ -62,7 +59,6 @@
     "on-scroll-up": "~/.config/waybar/scripts/timer.sh down",
     "on-scroll-down": "~/.config/waybar/scripts/timer.sh up",
     "tooltip": true,
-    "escape": true,
   },
 
   "custom/update": {
@@ -91,7 +87,7 @@
 
   "clock": {
     "format": "{:%I:%M %p}",
-    "format-alt": "󰸗 {:%a %e-%b %Y}",
+    "format-alt": "󰸗 {:%a%e-%b %Y}",
     "interval": 60,
     "tooltip": true,
     "tooltip-format": "{:%Y-%m-%d %A}\n{calendar}",
