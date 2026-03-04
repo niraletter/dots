@@ -200,9 +200,9 @@ show_setup_power_menu() {
     case $(menu "Battery Mode" "$opts") in
         Back) show_setup_menu ;;
         "Limit Charging (80%)")
-            if command -v asusctl &>/dev/null; then asusctl -c 80 && notify-send "Enabled Limit Charging 󱈏  (80%)"; else notify-send "Error" "asusctl not found"; fi ;;
+            if command -v asusctl &>/dev/null; then asusctl battery limit 80 && notify-send "Enabled Limit Charging 󱈏  (80%)"; else notify-send "Error" "asusctl not found"; fi ;;
         "Full Charging (100%)")
-            if command -v asusctl &>/dev/null; then asusctl -o && notify-send "Enabled Full Charging 󰂅  (100%)"; else notify-send "Error" "asusctl not found"; fi ;;
+            if command -v asusctl &>/dev/null; then asusctl battery oneshot && notify-send "Enabled Full Charging 󰂅  (100%)"; else notify-send "Error" "asusctl not found"; fi ;;
     esac
 }
 
