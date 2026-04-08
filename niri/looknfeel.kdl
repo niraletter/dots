@@ -1,0 +1,55 @@
+
+// Screenshots
+screenshot-path "~/Pictures/%Y-%m-%d %H-%M-%S.png"
+
+//overview {
+   // backdrop-color "#000000AA"   // dim strength (AA = opacity)
+//}
+
+layer-rule {
+    match namespace="waybar"
+    opacity 0.99
+}
+
+layout {
+    gaps 2
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+
+    // You can change the default width of the new windows.
+    default-column-width { proportion 0.5; }
+
+    // You can change how the focus ring looks.
+    focus-ring {
+        off
+    }
+
+    border {
+        on
+        width 1.5
+        active-color "#CDD6F4"
+        inactive-color "#CDD6F4"
+        urgent-color "#f05050"
+    }
+
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd

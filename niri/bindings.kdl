@@ -1,0 +1,221 @@
+binds {
+    // Help and menus
+    //Mod+K { spawn "omarchy-menu-keybindings"; }
+    Mod+Shift+K { show-hotkey-overlay; }
+
+    Mod+Alt+U { spawn "omarchy-theme-set" "catppuccin"; }
+    Mod+Alt+I { spawn "omarchy-theme-set" "Gruvbox"; }
+    Mod+Alt+O { spawn "omarchy-theme-set" "Tokyo Night"; }
+    Mod+Alt+P { spawn "omarchy-theme-set" "Vantablack"; }
+    Mod+Alt+y { spawn "omarchy-theme-set" "Everforest"; }
+    Mod+Alt+e { spawn "omarchy-theme-set" "miasma"; }
+
+    // App launcher and menus
+
+
+    // Theme and bar controls
+    Mod+Shift+Space { spawn "omarchy-toggle-waybar"; }
+    Mod+Ctrl+Space { spawn "omarchy-theme-bg-next"; }
+    Mod+Shift+Ctrl+Space { spawn "omarchy-menu" "theme"; }
+
+    // Notifications (mako)
+    Mod+Shift+Comma { spawn "makoctl" "dismiss"; }
+    Mod+Ctrl+Comma { spawn-sh "makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send \"Silenced notifications\" || notify-send \"Enabled notifications\""; }
+
+    // Utilities
+    Super+Ctrl+X { spawn "voxtype" "record" "toggle"; }
+
+    //XF86Calculator { spawn "gnome-calculator"; }
+
+    // Media and brightness (with OSD)
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    //XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+    Alt+XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "+1"; }
+    Alt+XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-1"; }
+    Alt+XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "+1"; }
+    Alt+XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "-1"; }
+
+    // Screenshots and screen recording
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+  //Shift+Print { spawn "omarchy-cmd-screenshot" "smart" "clipboard"; }
+    //Alt+Print { spawn "omarchy-menu" "screenrecord"; }
+    Mod+Print { spawn-sh "pkill hyprpicker || hyprpicker -a"; }
+
+
+
+    // Idle and nightlight toggles
+    //Mod+Ctrl+I { spawn "omarchy-toggle-idle"; }
+       // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+L { spawn "hyprlock"; }
+
+
+
+    // Application launches
+    Mod+Return { spawn "foot"; }
+
+    Mod+D { spawn "alacritty" "-e" "lazydocker"; }
+    Mod+Shift+F { spawn "nautilus" "--new-window"; }
+    Mod+B { spawn "chromium"; }
+    Mod+A { spawn "fuzzel"; }
+    Mod+N {spawn "gnome-text-editor" "--new-window"; }
+    Mod+M { spawn "zeditor"; }
+
+    Mod+Shift+B { spawn "chromium" "--private"; }
+    Mod+Shift+M { spawn "code"; }
+    Mod+Shift+T { spawn "alacritty" "--class" "btop-float" "-e" "btop";}
+
+    // Clipboard menu
+    // Mod+Ctrl+V { spawn "omarchy-launch-walker" "-m" "clipboard"; }
+
+
+    // Window management
+
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+W repeat=false { close-window; }
+    Mod+Q { spawn "true"; }
+//  Ctrl+Alt+Delete { spawn "omarchy-cmd-close-all-windows"; }
+
+    // Focus movement (arrows)
+    Mod+Left { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up { focus-window-up; }
+    Mod+Down { focus-window-down; }
+
+    // Alternative
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+
+
+    // Window movement
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Down  { move-window-down; }
+
+    // Vim alternative
+    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    // Workspace switching (1-10)
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    // Move column to workspace
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+Ctrl+Shift+Up { move-column-to-workspace-up; }
+    Mod+Ctrl+Shift+Down { move-column-to-workspace-down; }
+
+     // Move window stack to workspace
+    Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Ctrl+2 { move-window-to-workspace 2; }
+    Mod+Ctrl+3 { move-window-to-workspace 3; }
+    Mod+Ctrl+4 { move-window-to-workspace 4; }
+    Mod+Ctrl+5 { move-window-to-workspace 5; }
+    Mod+Ctrl+6 { move-window-to-workspace 6; }
+    Mod+Ctrl+7 { move-window-to-workspace 7; }
+    Mod+Ctrl+8 { move-window-to-workspace 8; }
+    Mod+Ctrl+9 { move-window-to-workspace 9; }
+
+    // Move workspace
+    Mod+Shift+U  { move-workspace-down; }
+    Mod+Shift+I  { move-workspace-up; }
+
+    // Focus workspace
+    Mod+Shift+Up  { focus-workspace-up; }
+    Mod+Shift+Down { focus-workspace-down; }
+
+    // Switch focus between current and previous window/workspace
+    Mod+Tab repeat=false { focus-window-previous; }
+    // Mod+Ctrl+Tab { focus-workspace-previous; }
+
+
+    // Window cycling (Alt+Tab equivalent)
+    //Alt+Tab { focus-window-down; }
+    Alt+Shift+Tab { focus-window-up; }
+
+    // Layout management
+
+
+    Mod+Slash repeat=false { toggle-column-tabbed-display; }
+    Mod+C { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+
+
+    Mod+T { toggle-window-floating; }
+    Mod+Alt+T { switch-focus-between-floating-and-tiling; }
+    Mod+F repeat=false{ maximize-column; }
+    Mod+Ctrl+F { maximize-window-to-edges; }
+    Mod+Alt+F { fullscreen-window; }
+    Mod+R { switch-preset-column-width-back; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+
+    // Column management
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+    Mod+BracketLeft { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Alt+Comma { consume-window-into-column; }
+    Mod+Alt+Period { expel-window-from-column; }
+
+    // Window resizing
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // System controls
+    Mod+Shift+Ctrl+Q { quit; }
+    Mod+Shift+P { power-off-monitors; }
+
+    // Mouse bindings
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollDown { focus-column-left; }
+    Mod+Ctrl+WheelScrollUp { focus-column-right; }
+
+    // quit
+    // Ctrl+Alt+Delete { quit; }
+
+    // Escape hatch
+    Ctrl+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+}

@@ -1,0 +1,6 @@
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "hypridle"
+spawn-sh-at-startup "swaybg -i ~/.config/omarchy/current/background -m fill"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"

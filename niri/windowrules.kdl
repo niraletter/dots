@@ -1,0 +1,75 @@
+
+window-rule {
+    draw-border-with-background false
+    tiled-state true
+}
+
+window-rule {
+    match app-id="^btop-float$"
+    open-floating true
+    default-column-width { fixed 700; }
+    default-window-height { fixed 500; }
+}
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"chromium$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Firefox picture-in-picture
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Password managers - block from screen capture
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    match app-id=r#"^1Password.*$"#
+    block-out-from "screen-capture"
+}
+
+// Floating windows for specific applications
+window-rule {
+    match app-id="pavucontrol"
+    open-floating true
+}
+
+window-rule {
+    match app-id="blueman-manager"
+    open-floating true
+}
+
+window-rule {
+    match app-id="nm-connection-editor"
+    open-floating true
+}
+
+// System dialogs
+window-rule {
+    match app-id="zenity"
+    open-floating true
+}
+
+window-rule {
+    match app-id="polkit-gnome-authentication-agent-1"
+    open-floating true
+}
+
+

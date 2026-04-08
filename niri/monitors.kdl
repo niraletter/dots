@@ -1,0 +1,9 @@
+output "eDP-1" {
+      mode "2880x1800@120.001"
+      scale 2
+}
+
+//named workspaces
+workspace "1"
+workspace "2"
+workspace "3"

@@ -1,0 +1,36 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+        }
+        numlock
+
+        repeat-delay 600
+        repeat-rate 40
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        scroll-factor  0.4
+    }
+
+    mouse {
+        accel-speed -0.8
+    }
+
+    
+
+    //focus-follows-mouse
+    focus-follows-mouse max-scroll-amount="0%"
+    warp-mouse-to-focus
+    
+}
+
+cursor {
+    xcursor-theme "macOS"
+    xcursor-size 25
+    hide-when-typing
+}
