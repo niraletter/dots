@@ -1,0 +1,162 @@
+// sixseven — cyan / violet
+// Native detection only; no network requests or external commands.
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "nixos",
+    "color": {
+      "1": "38;2;125;211;252",
+      "2": "38;2;196;181;253",
+      "3": "38;2;125;211;252",
+      "4": "38;2;196;181;253"
+    },
+    "padding": {
+      "top": 1,
+      "left": 1,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;125;211;252",
+      "title": "38;2;196;181;253"
+    },
+    "key": {
+      "width": 13
+    },
+    "size": {
+      "ndigits": 1
+    },
+    "bar": {
+      "char": {
+        "elapsed": "━",
+        "total": "─"
+      },
+      "width": 10,
+      "border": {
+        "left": "",
+        "right": ""
+      },
+      "color": {
+        "elapsed": "38;2;125;211;252",
+        "total": "38;2;100;116;139"
+      }
+    },
+    "percent": {
+      "type": [
+        "num",
+        "bar"
+      ],
+      "ndigits": 0
+    }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "key": " ",
+      "format": "{user-name-colored}{at-symbol-colored}{host-name-colored}",
+      "color": {
+        "user": "38;2;125;211;252",
+        "at": "38;2;100;116;139",
+        "host": "38;2;196;181;253"
+      }
+    },
+    {
+      "type": "separator",
+      "string": "─",
+      "times": 46
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;196;181;253}01  /  SYSTEM{#}"
+    },
+    {
+      "type": "os",
+      "key": "  System",
+      "format": "{name} {version-id} · {arch}"
+    },
+    {
+      "type": "host",
+      "key": "󰌢  Machine"
+    },
+    {
+      "type": "kernel",
+      "key": "  Kernel",
+      "format": "{release}"
+    },
+    {
+      "type": "uptime",
+      "key": "󰥔  Uptime"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{#38;2;196;181;253}02  /  SESSION{#}"
+    },
+    {
+      "type": "wm",
+      "key": "  Desktop",
+      "format": "{pretty-name} · {protocol-name}"
+    },
+    {
+      "type": "terminal",
+      "key": "  Terminal",
+      "format": "{pretty-name}{?version} {version}{?}"
+    },
+    {
+      "type": "shell",
+      "key": "  Shell"
+    },
+    {
+      "type": "display",
+      "key": "󰍹  Display",
+      "format": "{width} × {height}{?refresh-rate} @ {refresh-rate} Hz{?}"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{#38;2;196;181;253}03  /  HARDWARE{#}"
+    },
+    {
+      "type": "cpu",
+      "key": "  CPU",
+      "format": "{name}"
+    },
+    {
+      "type": "gpu",
+      "key": "󰢮  GPU",
+      "format": "{name}",
+      "detectionMethod": "pci"
+    },
+    {
+      "type": "memory",
+      "key": "  Memory",
+      "format": "{percentage-bar}  {used} / {total}"
+    },
+    {
+      "type": "disk",
+      "key": "  Root",
+      "format": "{size-percentage-bar}  {size-used} / {size-total}",
+      "folders": "/"
+    },
+    {
+      "type": "disk",
+      "key": "  Home",
+      "format": "{size-percentage-bar}  {size-used} / {size-total}",
+      "folders": "/home"
+    },
+    {
+      "type": "battery",
+      "key": "  Battery",
+      "format": "{capacity-bar}  {capacity} · {status}"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{#38;2;56;189;248}●  {#38;2;125;211;252}●  {#38;2;165;180;252}●  {#38;2;196;181;253}●  {#38;2;216;180;254}●  {#38;2;100;116;139}●{#}"
+    },
+    "break"
+  ]
+}
