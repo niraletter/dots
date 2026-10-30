@@ -45,8 +45,7 @@ o.bind("SUPER + CTRL + RETURN", "Herdr", { omarchy = "terminal-herdr" })
 hl.unbind("SUPER + D")
 o.bind("SUPER + D", "Docker", { tui = "omarchy-launch-docker-tui" })
 
-hl.unbind("SUPER + SHIFT + D")
-o.bind("SUPER + SHIFT + D", "Discord", { launch = "discord" })
+-- Discord binding removed (not installed)
 
 hl.unbind("SUPER + B")
 hl.unbind("SUPER + SHIFT + B")
@@ -63,8 +62,8 @@ o.bind("SUPER + M", "Zed", { launch = "zeditor" })
 hl.unbind("SUPER + N")
 o.bind("SUPER + N", "Omawrite", { launch = "omawrite" })
 
-o.bind("ALT + SPACE", "OmaCast", "omarchy-shell shell toggle io.github.terrifiedbug.omacast '{}'")
-
+hl.unbind("ALT + SPACE")
+-- Alt+Space binding removed
 -- Niri-like hold-to-repeat focus movement (default binds fire once per
 -- press; holding them did nothing). Unbind then re-bind with repeating.
 hl.unbind("SUPER + LEFT")
