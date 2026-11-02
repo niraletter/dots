@@ -80,3 +80,9 @@ o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
 
 -- Screenshot on SUPER + SHIFT + S (same action as PRINT)
 o.bind("SUPER + SHIFT + S", "Screenshot", "omarchy-capture-screenshot")
+
+-- Push-to-talk: Caps Lock
+o.bind_hold("code:66", "Start dictation (push-to-talk)", "omarchy-dictation start", "Stop dictation (push-to-talk)", "omarchy-dictation stop", { ignore_mods = true })
+
+-- Mouse left thumb button (back button) unbound.
+hl.unbind("mouse:275")

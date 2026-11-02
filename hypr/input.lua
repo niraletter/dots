@@ -19,6 +19,13 @@ hl.device({
   sensitivity = -0.5,
 })
 
+-- Disable Caps Lock entirely (do nothing).
+hl.config({
+  input = {
+    kb_options = "caps:none",
+  },
+})
+
 -- Keyboard layout and options.
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 -- hl.config({
