@@ -50,7 +50,15 @@
     "context": "Terminal",
     "bindings": {
       "ctrl-v": "terminal::Paste",
-      "super-c": "terminal::Copy"
+      "super-c": "terminal::Copy",
+      "super-v": "terminal::Paste"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-c": "editor::Copy",
+      "ctrl-shift-v": "editor::Paste"
     }
   }
 ]

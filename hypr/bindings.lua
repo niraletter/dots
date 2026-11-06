@@ -94,3 +94,27 @@ o.bind_hold("code:66", "Start dictation (push-to-talk)", "omarchy-dictation star
 
 -- Mouse left thumb button (back button) unbound.
 hl.unbind("mouse:275")
+
+-- Make Super+C/V work as copy/paste inside Zed's embedded terminal too.
+-- Omarchy treats Zed as a non-terminal app, so Super+C defaults to Ctrl+C
+-- (SIGINT in the terminal). Force Ctrl+Shift+C/V for Zed instead.
+local function is_terminal(w)
+  if not w then return false end
+  if w.class == "dev.zed.Zed" then return true end
+  for _, tag in ipairs(w.tags or {}) do
+    if tag:gsub("%*$", "") == "terminal" then return true end
+  end
+  return false
+end
+local function universal_clipboard(key)
+  return function()
+    local w = hl.get_active_window()
+    local mods = is_terminal(w) and "CTRL SHIFT" or "CTRL"
+    hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "down" }))
+    hl.timer(function() hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "up" })) end, { timeout = 50, type = "oneshot" })
+  end
+end
+hl.unbind("SUPER + C")
+hl.unbind("SUPER + V")
+o.bind("SUPER + C", "Universal copy", universal_clipboard("C"))
+o.bind("SUPER + V", "Universal paste", universal_clipboard("V"))
