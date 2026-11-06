@@ -8,7 +8,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-`": ["task::Spawn", { "task_name": "go" }]
+      "alt-`": ["task::Spawn", { "task_name": "Run Dart file" }]
     }
   },
   {
@@ -49,7 +49,8 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-v": "terminal::Paste"
+      "ctrl-v": "terminal::Paste",
+      "super-c": "terminal::Copy"
     }
   }
 ]

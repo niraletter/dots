@@ -6,10 +6,14 @@ o.window(".*", { opacity = "1 1" })
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
  hl.config({
    general = {
-     -- No gaps between windows or borders.
-     gaps_in = 2,
-     gaps_out = 0,
+     -- Inner gaps between windows (default 5). Outer gaps (gaps_out) bumped
+     -- up by 1 from the scrolling-mode default of 0.
+     gaps_in = 1,
+     gaps_out = 1,
      border_size = 2,
+     -- Stop SUPER+LEFT/RIGHT (etc.) from wrapping to the opposite edge when
+     -- there is no window in that direction.
+     no_focus_fallback = true,
 --
 --     -- Change to niri-like side-scrolling layout.
 --     layout = "scrolling",
@@ -34,6 +38,9 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = 1.5, bezier = "niriOp
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.5, bezier = "niriClose", style = "popin 80%" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.5, bezier = "niriOpen" })
 hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.5, bezier = "niriClose" })
+
+hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 2, bezier = "easeOutQuint", style = "slide top" })
+hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 2, bezier = "easeInOutCubic", style = "slide bottom" })
 
 hl.curve("niriMove", { type = "spring", mass = 1, stiffness = 2000, dampening = 100 })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 20, spring = "niriMove" })

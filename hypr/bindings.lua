@@ -22,6 +22,7 @@
 
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
+hl.unbind("SUPER + Q")
 
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
@@ -45,7 +46,11 @@ o.bind("SUPER + CTRL + RETURN", "Herdr", { omarchy = "terminal-herdr" })
 hl.unbind("SUPER + D")
 o.bind("SUPER + D", "Docker", { tui = "omarchy-launch-docker-tui" })
 
--- Discord binding removed (not installed)
+-- Swap windows on SUPER+CTRL+LEFT/RIGHT too (mirrors SUPER+SHIFT+LEFT/RIGHT)
+o.rebind("SUPER + CTRL + LEFT", "Swap window to the left", hl.dsp.window.swap({ direction = "l" }))
+o.rebind("SUPER + CTRL + RIGHT", "Swap window to the right", hl.dsp.window.swap({ direction = "r" }))
+o.bind("SUPER + CTRL + UP", "Swap window up", hl.dsp.window.swap({ direction = "u" }))
+o.bind("SUPER + CTRL + DOWN", "Swap window down", hl.dsp.window.swap({ direction = "d" }))
 
 hl.unbind("SUPER + B")
 hl.unbind("SUPER + SHIFT + B")
@@ -59,24 +64,27 @@ o.bind("SUPER + RETURN", "Foot", { launch = "foot" })
 hl.unbind("SUPER + M")
 o.bind("SUPER + M", "Zed", { launch = "zeditor" })
 
+hl.unbind("SUPER + SHIFT + M")
+o.bind("SUPER + SHIFT + M", "VS Code", { launch = "code" })
+
 hl.unbind("SUPER + N")
 o.bind("SUPER + N", "Omawrite", { launch = "omawrite" })
 
 hl.unbind("ALT + SPACE")
 -- Alt+Space binding removed
--- Niri-like hold-to-repeat focus movement (default binds fire once per
--- press; holding them did nothing). Unbind then re-bind with repeating.
+-- Niri-like focus bindings: one press = one focus move (no hold-to-repeat).
 hl.unbind("SUPER + LEFT")
 hl.unbind("SUPER + RIGHT")
 hl.unbind("SUPER + UP")
 hl.unbind("SUPER + DOWN")
-o.bind("SUPER + LEFT", "Focus on left window", hl.dsp.focus({ direction = "l" }), { repeating = true })
-o.bind("SUPER + RIGHT", "Focus on right window", hl.dsp.focus({ direction = "r" }), { repeating = true })
-o.bind("SUPER + UP", "Focus on upper window", hl.dsp.focus({ direction = "u" }), { repeating = true })
-o.bind("SUPER + DOWN", "Focus on lower window", hl.dsp.focus({ direction = "d" }), { repeating = true })
+o.bind("SUPER + LEFT", "Focus on left window", hl.dsp.focus({ direction = "l" }))
+o.bind("SUPER + RIGHT", "Focus on right window", hl.dsp.focus({ direction = "r" }))
+o.bind("SUPER + UP", "Focus on upper window", hl.dsp.focus({ direction = "u" }))
+o.bind("SUPER + DOWN", "Focus on lower window", hl.dsp.focus({ direction = "d" }))
 
--- Activity monitor (btop) via the initial standard omarchy TUI launcher
-o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
+-- Clone Activity (btop) onto SUPER + CTRL + T as well (was: Theme menu).
+hl.unbind("SUPER + CTRL + T")
+o.bind("SUPER + CTRL + T", "Activity", { tui = "btop" })
 
 -- Screenshot on SUPER + SHIFT + S (same action as PRINT)
 o.bind("SUPER + SHIFT + S", "Screenshot", "omarchy-capture-screenshot")
