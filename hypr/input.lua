@@ -27,6 +27,14 @@ hl.config({
   },
 })
 
+-- Restore focus dispatcher's window-seeking behavior inside fullscreen windows
+-- on a scrolling layout, so SUPER+LEFT/RIGHT can scroll away to adjacent tiles.
+hl.config({
+  binds = {
+    movefocus_cycles_fullscreen = true,
+  },
+})
+
 -- Keyboard layout and options.
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 -- hl.config({
