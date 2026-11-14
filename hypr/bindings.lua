@@ -23,7 +23,8 @@
 -- Disable a default binding without replacing it.
 -- hl.unbind("SUPER + SHIFT + B")
 hl.unbind("SUPER + Q")
-
+hl.unbind("SUPER + grave")
+hl.unbind("SUPER + SHIFT + grave")
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
@@ -82,9 +83,14 @@ o.bind("SUPER + RIGHT", "Focus on right window", hl.dsp.focus({ direction = "r" 
 o.bind("SUPER + UP", "Focus on upper window", hl.dsp.focus({ direction = "u" }))
 o.bind("SUPER + DOWN", "Focus on lower window", hl.dsp.focus({ direction = "d" }))
 
--- Clone Activity (btop) onto SUPER + CTRL + T as well (was: Theme menu).
+-- Clone Activity (btop) onto SUPER + CTRL + T as well (was: Theme menu), in alacritty.
 hl.unbind("SUPER + CTRL + T")
-o.bind("SUPER + CTRL + T", "Activity", { tui = "btop" })
+o.bind("SUPER + CTRL + T", "Activity", "alacritty -e btop")
+hl.unbind("SUPER + SHIFT + T")
+o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
+
+-- fdemon (Flutter dev TUI) on SUPER + CTRL + F (was: Tiled full screen)
+o.rebind("SUPER + CTRL + F", "fdemon", { tui = "fdemon" })
 
 -- Screenshot on SUPER + SHIFT + S (same action as PRINT)
 o.bind("SUPER + SHIFT + S", "Screenshot", "omarchy-capture-screenshot")
