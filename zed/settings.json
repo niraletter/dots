@@ -1,4 +1,10 @@
 {
+  "debugger": {
+    "button": false
+  },
+  "status_bar": {
+    "cursor_position_button": false
+  },
   "terminal": {
     "minimum_contrast": 44.0,
     "font_size": 12,
