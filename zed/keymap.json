@@ -2,7 +2,40 @@
   {
     "context": "Workspace",
     "bindings": {
+      "alt-0": null,
+      "alt-1": null,
+      "alt-2": null,
+      "alt-3": null,
+      "alt-4": null,
+      "alt-5": null,
+      "alt-6": null,
+      "alt-7": null,
+      "alt-8": null,
+      "alt-9": null
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-0": null,
+      "alt-1": ["task::Spawn", { "task_name": "Run Python file" }],
+      "alt-2": ["task::Spawn", { "task_name": "lazygit" }],
+      "alt-3": null,
+      "alt-4": null,
+      "alt-5": null,
+      "alt-6": null,
+      "alt-7": null,
+      "alt-8": null,
+      "alt-9": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
       "alt-`": ["task::Spawn", { "task_name": "Run Dart file" }],
+      "alt-o": "task::Spawn",
+      "alt-1": ["task::Spawn", { "task_name": "Run Python file" }],
+      "alt-2": ["task::Spawn", { "task_name": "lazygit" }],
       "ctrl-b": "workspace::ToggleRightDock",
       "ctrl-alt-b": null
     }
@@ -10,6 +43,7 @@
   {
     "context": "Editor",
     "bindings": {
+      "ctrl-n": "workspace::NewFile",
       "ctrl-shift-c": "editor::Copy",
       "ctrl-shift-v": "editor::Paste"
     }
@@ -18,7 +52,9 @@
     "context": "Terminal",
     "bindings": {
       "super-c": "terminal::Copy",
-      "super-v": "terminal::Paste"
+      "super-v": "terminal::Paste",
+      "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-n": "workspace::NewTerminal"
     }
   }
 ]

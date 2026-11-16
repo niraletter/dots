@@ -1,14 +1,13 @@
 [
   {
-    "label": "Run Dart file",
-    "command": "dart run \"$ZED_FILE\"",
+    "label": "Run Python file",
+    "command": "python3 \"$ZED_FILE\"",
     "use_new_terminal": false,
     "allow_concurrent_runs": true
   },
   {
-    "label": "go",
-    "command": "go run",
-    "args": ["$ZED_FILE"],
+    "label": "Run Dart file",
+    "command": "dart run \"$ZED_FILE\"",
     "use_new_terminal": false,
     "allow_concurrent_runs": true
   },
@@ -23,15 +22,4 @@
     "hide": "always",
     "shell": "system"
   },
-  {
-    "label": "gitui",
-    "command": "gitui",
-    "env": {},
-    "use_new_terminal": false,
-    "allow_concurrent_runs": true,
-    "reveal": "always",
-    "reveal_target": "center",
-    "hide": "always",
-    "shell": "system"
-  }
 ]
