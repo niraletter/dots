@@ -1,7 +1,11 @@
 {
+  "terminal": {
+    "minimum_contrast": 44.0,
+    "font_size": 12,
+  },
   "autosave": {
     "after_delay": {
-      "milliseconds": 300
+      "milliseconds": 0
     }
   },
   "mouse_wheel_zoom": true,
@@ -9,15 +13,24 @@
   "buffer_font_size": 12.0,
   "ui_font_family": "JetBrainsMono Nerd Font",
   "agent_servers": {
-    "github-copilot-cli": {
-      "type": "registry"
-    },
-    "opencode-v2": {
+    "codex-acp": {
+      "default_config_options": {
+        "reasoning_effort": "medium",
+        "collaboration_mode": "default"
+      },
       "type": "registry"
     }
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "cli_default_open_behavior": "existing_window",
   "theme": "Omazed",
-  "buffer_font_family": "JetBrainsMono Nerd Font"
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "context_servers": {
+    "browse": {
+      "command": "/home/niraletter/.local/bin/browse",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
 }
